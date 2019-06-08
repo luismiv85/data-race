@@ -13,7 +13,7 @@ fi
 
 # set -e
 
-rubies=("ruby-2.6.1@data-race" "ruby-2.7.0-preview1@code-race")
+rubies=("ruby-2.6.1@data-race" "ruby-2.6.3@code-race" "ruby-2.7.0-preview1@code-race")
 for i in "${rubies[@]}"
 do
   echo "====================================================="
