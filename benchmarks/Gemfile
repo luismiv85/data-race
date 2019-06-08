@@ -1,0 +1,14 @@
+source 'https://rubygems.org'
+
+gem 'rcsv'
+gem 'ccsv'
+gem 'fastest-csv'
+gem 'import_csv'
+gem 'compact_csv', '~> 1.0'
+gem 'kalibera'
+
+
+
+# clientes
+gem 'csv-query'
+gem 'benchmark-ips'
