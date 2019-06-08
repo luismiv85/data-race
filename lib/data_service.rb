@@ -71,13 +71,17 @@ class DataService
     'gs://securitas/natalidad000000000068.csv'
   ]
 
-  def initialize(file_name = nil)
-    @file_names = [file_name] || URLS
-    @path_download = './datas/'
+  def initialize(path_to_download: nil)
+    raise 'Path not valid' if path_to_download.nil?
+    @path_download = path_to_download
   end
 
-  def download_files
-    @file_names.each do |file|
+  def download_file(file)
+    system("gsutil -m cp -r #{file} #{@path_download}")
+  end
+
+  def download_all_files
+    URLS.each do |file|
       system("gsutil -m cp -r #{file} #{@path_download}")
     end
   end
