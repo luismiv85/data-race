@@ -1,3 +1,4 @@
 tmp/
 datas/*.csv
 benchmarks/data/*.csv
+*.csv

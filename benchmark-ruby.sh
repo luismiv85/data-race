@@ -13,7 +13,9 @@ fi
 
 # set -e
 
-rubies=("ruby-2.6.1@data-race" "ruby-2.6.3@code-race" "ruby-2.7.0-preview1@code-race")
+# rubies=("ruby-2.6.1" "ruby-2.6.3" "ruby-2.7.0-preview1")
+rubies=("ruby-2.6.1")
+
 for i in "${rubies[@]}"
 do
   echo "====================================================="
@@ -21,7 +23,21 @@ do
   echo "====================================================="
   rvm use $i
   rvm list
+  bundle install
+
+  result=$(nproc --all)
+  if((result > 0));
+  then
+    echo "$result procesadores"
+    echo "==================== THREADS  ======================"
+    time ruby main-threads.rb
+    echo "==================== THREADS  ======================"
+  fi
+
+  echo "==================== SINCRONO  ======================"
   time ruby main.rb
+  echo "==================== SINCRONO  ======================"
+
   echo "====================================================="
   echo "$i: End Test"
   echo "====================================================="
