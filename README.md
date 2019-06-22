@@ -1,5 +1,6 @@
 # data-race
-docker build -t my-ruby-app .
-docker run -it my-ruby-app /bin/bash
-docker run -t -i -v /Users/luismivazquez/data-race/datas:/app/datas/ my-ruby-app /bin/bash
+
+docker build -t data-race-script .
+docker run -it data-race-script /bin/bash
+docker run -t -i -v /Users/luismivazquez/data-race/datas:/app/datas/ data-race-script /bin/bash
 

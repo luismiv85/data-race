@@ -1,4 +1,4 @@
-require_relative 'lib/csv_processor_3_service.rb'
+require_relative 'lib/csv_processor_service.rb'
 require_relative 'lib/csv_export_service.rb'
 
 require 'pry'
@@ -11,7 +11,7 @@ files = Dir["./datas/*.csv"]
 start_time_block = Time.now
 puts "Working #{`nproc --all`} porcesadores"
 results = Parallel.map(files) do |file|
-  CsvProcessor3Service.process(file)
+  CsvProcessorService.process(file)
 end
 
 structure = {}
